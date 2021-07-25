@@ -1,8 +1,9 @@
 // main.ts
 
 // Modules to control application life and create native browser window
-import { app, BrowserWindow } from "electron";
+import { app, BrowserWindow, Menu } from "electron";
 import * as path from "path";
+import help from "./help";
 
 function createWindow () {
     // Create the browser window.
@@ -24,7 +25,11 @@ function createWindow () {
     mainWindow.loadFile("src/app/index.html");
   
     // Open the DevTools.
-    mainWindow.webContents.openDevTools()
+    // mainWindow.webContents.openDevTools()
+
+    Menu.setApplicationMenu(Menu.buildFromTemplate([
+        help(mainWindow),
+    ]));
 }
 
 // This method will be called when Electron has finished
