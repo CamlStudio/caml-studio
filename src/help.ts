@@ -1,5 +1,8 @@
 import { BrowserWindow, clipboard, MenuItem } from "electron";
 import { MenuItemConstructorOptions } from "electron/main";
+import error from "./error";
+
+// todo: fix the clipboard copy for the 'About' label in submenu
 
 export default function help(browserWindow: BrowserWindow): MenuItemConstructorOptions | MenuItem {
     return {
@@ -27,7 +30,7 @@ V8: ${process.versions["v8"]}
                         if (value.response === 0) {
                             clipboard.writeText(options.detail);
                         }
-                    });
+                    }).catch(error);
                 },
             },
             {

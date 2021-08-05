@@ -3,6 +3,7 @@
 // Modules to control application life and create native browser window
 import { app, BrowserWindow, Menu } from "electron";
 import * as path from "path";
+import edit from "./edit";
 import help from "./help";
 
 function createWindow () {
@@ -28,6 +29,7 @@ function createWindow () {
     // mainWindow.webContents.openDevTools()
 
     Menu.setApplicationMenu(Menu.buildFromTemplate([
+        edit(),
         help(mainWindow),
     ]));
 }
